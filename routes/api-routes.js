@@ -10,5 +10,23 @@ module.exports = (app) => {
     db.Joke.findAll({}).then((dbJoke) => res.json(dbJoke));
   });
 
+
+  app.post('/api/jokes', (req, res) => {
+
+    
+  });
+
+
+  app.delete('/api/jokes/:id', (req, res) => {
+
+    
+  });
+
+  app.put('/api/jokes', (req, res) => {
+    
+
+  });
+  
+
   
 };
