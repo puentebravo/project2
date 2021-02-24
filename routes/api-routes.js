@@ -39,8 +39,18 @@ module.exports = (app) => {
 
 
 app.put('/api/jokes', (req, res) => {
-
-  
+  db.Joke.update(
+    {
+      quote: req.body.quote,
+      author: req.body.author,
+      origin: req.body.origin
+    },
+    {
+      where: {
+        id: req.body.id,
+      },
+    }
+  ).then((dbJoke) => res.json(dbJoke));
 });
   
 };
