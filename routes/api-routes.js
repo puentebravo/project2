@@ -13,19 +13,35 @@ module.exports = (app) => {
 
   app.post('/api/jokes', (req, res) => {
 
-    
+    db.Joke.create({
+
+      quote: req.body.quote,
+      author: req.body.author,
+      origin: req.body.origin
+
+    }).then((dbJoke) => res.json(dbJoke));
+
   });
 
 
   app.delete('/api/jokes/:id', (req, res) => {
 
-    
+    db.Joke.destroy({
+      where: 
+      {
+        id: req.params.id,
+      },
+
+    }).then((dbJoke) => res.json(dbJoke));
+
   });
 
-  app.put('/api/jokes', (req, res) => {
-    
 
-  });
+
+app.put('/api/jokes', (req, res) => {
+
+  
+});
   
 
   
