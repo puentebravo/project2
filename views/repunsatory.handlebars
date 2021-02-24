@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col lg-2">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="jokeSearch" placeholder="Looking for something?"
+                    aria-label="Your dream burger" aria-describedby="Submit Button">
+                <button class="btn btn-outline-success" type="button" id="burgerBtn">Search</button>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Author</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Origin</label>
+                </div>
+            </div>
+        </div>
+        <div class="col lg-10">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">The Dadabase</h5>
+                    <br>
+                    <ul>
+                        {{#each Jokes}}
+                        {{> punlistblock}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
