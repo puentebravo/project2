@@ -1,5 +1,6 @@
 <li>
-    <h5 class="card-title" id="randoJokeText"> "{{quote}}" </h5>
-    <p class="card-subtitle text-muted" id="jokeSource">- {{author}}, {{origin}}</p>
-    <button type="button" class="btn btn-primary btn-sm save-joke" data-id="{{id}}" data-bs-toggle="button" autocomplete="off">Save</button>
+    <h5 class="card-title punTitle"> "{{quote}}" </h5>
+    <p class="card-subtitle text-muted punSource">- {{author}}, {{origin}}</p>
+    <button type="button" class="btn btn-primary btn-sm save-joke" data-id="{{id}}" data-saved="{{saved}}"
+        data-bs-toggle="button" autocomplete="off">{{#if saved}}Unsave{{else}}Save{{/if}}</button>
 </li>
