@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col lg-1"></div>
+        <div class="col lg-4">
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Authored Entries</div>
+                <div class="card-body">
+                    <h5 class="card-title">Your gifts to the world:</h5>
+                    <ul>
+                        {{#each jokes}}
+                        {{#if (authoredby value1)}}
+                        {{> authoredList}}
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col lg-2"></div>
+        <div class="col lg-4">
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Saved Entries</div>
+                <div class="card-body">
+                    <h5 class="card-title">Chosen Laughs:</h5>
+                    <ul>
+                        {{#each jokes}}
+                        {{#if saved}}
+                        {{> punlistblock}}
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col lg-1"></div>
+    </div>
+</div>
