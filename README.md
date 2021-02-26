@@ -2,7 +2,7 @@
 
 ## Description
 
-From Dad to Bad is your one stop shop for all things dad jokes, puns, and movie one liners. Whether it elicites laughter, tears, groaning, or a mixture of all three, From Dad to Bad has it all!
+From Dad to Bad is your one stop shop for all things dad jokes, puns, and movie one liners. Whether it elicits laughter, tears, groaning, or a mixture of all three, From Dad to Bad has it all!
 
 [Check it out here](https://aqueous-meadow-09339.herokuapp.com/)
 
