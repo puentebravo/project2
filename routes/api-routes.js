@@ -9,10 +9,13 @@ module.exports = (app) => {
   });
 
   app.get("/", (req, res) => {
-    const inboundObj = await db.query("SELECT * FROM Jokes ORDER BY RAND() LIMIT 1;", {
-      type: QueryTypes.SELECT,
-    })
-    res.render("index", inboundObj)
+    const inboundObj = db.query(
+      "SELECT * FROM Jokes ORDER BY RAND() LIMIT 1;",
+      {
+        type: QueryTypes.SELECT,
+      }
+    );
+    res.render("index", inboundObj);
   });
 
   app.post("/api/jokes", (req, res) => {
