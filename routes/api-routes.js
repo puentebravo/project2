@@ -4,9 +4,7 @@ const passport = require("../config/passport");
 // Routes
 
 module.exports = (app) => {
-
   app.get("/", (req, res) => {
-
     db.Joke.findOne({ order: db.sequelize.random() }).then((data) => {
       console.log(data);
       console.log(data.quote);
@@ -14,40 +12,37 @@ module.exports = (app) => {
         quote: data.quote,
         author: data.author,
         origin: data.origin,
+        style: "index.css",
       };
-      res.render("index", groaner, { title: 'homepage', style: 'index.css' } );
+      res.render("index", groaner);
     });
   });
-
 
   app.get("/api/jokes", (req, res) => {
-    db.Joke.findAll({}).then((dbJoke) => res.json(dbJoke)
-    );
-    res.render('repunsatory', {
-      title: 'repunsatory',
-      style: 'repunsatory.css'
-    });
-});
-
-router.get('/profile', (req, res) => {
-  db.all((data) => {
-    res.render('profile', { 
-      title: 'Profile',
-      style: profile.css
+    db.Joke.findAll({}).then((dbJoke) => {
+      res.json(dbJoke);
+      res.render("repunsatory", {
+        title: "repunsatory",
+        style: "repunsatory.css",
+      });
     });
   });
-});
 
+  app.get("/profile", (req, res) => {
+    db.all((data) => {
+      res.render("profile", {
+        title: "Profile",
+        style: "profile.css",
+      });
+    });
+  });
 
-
-app.post("/api/jokes", (req, res) => {
-  db.Joke.create(
-    {
-    quote: req.body.quote,
-    author: req.body.author,
-    origin: req.body.origin,
-    }
-    ).then((dbJoke) => res.json(dbJoke));
+  app.post("/api/jokes", (req, res) => {
+    db.Joke.create({
+      quote: req.body.quote,
+      author: req.body.author,
+      origin: req.body.origin,
+    }).then((dbJoke) => res.json(dbJoke));
   });
 
   app.delete("/api/jokes/:id", (req, res) => {
@@ -80,7 +75,7 @@ app.post("/api/jokes", (req, res) => {
   app.post("/api/signup", (req, res) => {
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -101,7 +96,7 @@ app.post("/api/jokes", (req, res) => {
     } else {
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
       });
     }
   });
