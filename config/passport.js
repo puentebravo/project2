@@ -3,24 +3,24 @@ let LocalStrategy = require("passport-local").Strategy;
 
 let db = require("../models");
 
-passport.use(new LocalStrategy(
+passport.use(
+  new LocalStrategy(
     {
-      usernameField: "email"
+      usernameField: "email",
     },
     ((email, password, done) => {
       db.User.findOne({
         where: {
-          email: email
-        }
-      }).then(function(dbUser) {
+          email: email,
+        },
+      }).then((dbUser) => {
         if (!dbUser) {
           return done(null, false, {
-            message: "Incorrect email."
+            message: "Incorrect email.",
           });
-        }
-        else if (!dbUser.validPassword(password)) {
+        } else if (!dbUser.validPassword(password)) {
           return done(null, false, {
-            message: "Incorrect password."
+            message: "Incorrect password.",
           });
         }s
         return done(null, dbUser);
