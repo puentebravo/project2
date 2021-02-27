@@ -1,0 +1,18 @@
+module.exports = function (sequelize, DataTypes) {
+  const Joke = sequelize.define("Joke", {
+    quote: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      unique: false,
+    },
+    author: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    origin: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  });
+  return Joke;
+};
