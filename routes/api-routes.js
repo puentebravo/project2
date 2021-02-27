@@ -9,7 +9,7 @@ module.exports = (app) => {
   });
 
   app.get("/", (req, res) => {
-    const inboundObj = db.query(
+    const inboundObj = db.sequelize.query(
       "SELECT * FROM Jokes ORDER BY RAND() LIMIT 1;",
       {
         type: QueryTypes.SELECT,
