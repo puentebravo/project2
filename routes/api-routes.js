@@ -1,6 +1,5 @@
-const { QueryTypes } = require("sequelize");
+// const { QueryTypes } = require("sequelize");
 const db = require("../models");
-
 // Routes
 
 module.exports = (app) => {
@@ -9,13 +8,16 @@ module.exports = (app) => {
   });
 
   app.get("/", (req, res) => {
-    const inboundObj = db.sequelize.query(
-      "SELECT * FROM Jokes ORDER BY RAND() LIMIT 1;",
-      {
-        type: QueryTypes.SELECT,
-      }
-    );
-    res.render("index", inboundObj);
+    db.Joke.findOne({ order: db.sequelize.random() }).then((data) => {
+      console.log(data);
+      console.log(data.quote);
+      const groaner = {
+        quote: data.quote,
+        author: data.author,
+        origin: data.origin,
+      };
+      res.render("index", groaner);
+    });
   });
 
   app.post("/api/jokes", (req, res) => {
