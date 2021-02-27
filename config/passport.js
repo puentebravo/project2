@@ -1,14 +1,14 @@
 const passport = require("passport");
-let LocalStrategy = require("passport-local").Strategy;
+const LocalStrategy = require("passport-local").Strategy;
 
-let db = require("../models");
+const db = require("../models");
 
 passport.use(
   new LocalStrategy(
     {
       usernameField: "email",
     },
-    ((email, password, done) => {
+    (email, password, done) => {
       db.User.findOne({
         where: {
           email: email,
@@ -22,10 +22,12 @@ passport.use(
           return done(null, false, {
             message: "Incorrect password.",
           });
-        }s
+        }
+        s;
         return done(null, dbUser);
       });
-  })
+    }
+  )
 );
 
 passport.serializeUser((user, cb) => {
