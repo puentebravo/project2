@@ -5,9 +5,31 @@ const db = require('../models/');
 
 router.get('/', (req, res) => {
   db.all((data) => {
-    res.render('index', title:Express);
+    res.render('index', { 
+      title: 'home page',
+      style: index.css
+    });
   });
 });
+
+router.get('/profile', (req, res) => {
+  db.all((data) => {
+    res.render('index', { 
+      title: 'Profile',
+      style: profile.css
+    });
+  });
+});
+
+router.get('/repunsatory', (req, res) => {
+  db.all((data) => {
+    res.render('index', { 
+      title: 'Repunsatory',
+      style: repunsatory.css
+    });
+  });
+});
+
 
 router.post('/api/', (req, res) => {
   db.create(['quote', 'author', 'origin'], [req.body.quote, req.body.author, req.body.origin], (result) => {
