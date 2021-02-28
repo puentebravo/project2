@@ -1,69 +1,124 @@
-const loginButton = document.querySelector(".");
-const searchButton = document.querySelector(".");
-const addButton = document.querySelector(".");
-const authorCheck = document.querySelector(".");
-const saveButton = document.querySelector(".");
-const deleteButton = document.querySelector(".");
+const $jokeTitle = $(".joke-title")
+const $jokeText = $(".joke-textarea");
+const $saveJokeBtn = $(".save-joke");
+const $newJokeBtn = $(".new-joke");
+const $jokeList = $(".list-container .list-group");
 
-loginButton.addEventListener("click", () => {
-  fetch("/api/login",{
-    email: email,
-    password:password
-  }).then(() => {
-    window.location.replace("/");
-  }).catch((err) => {
-      console.log(err);
-  });
-});
+let activeJoke = {};
 
-searchButton.addEventListener("click", () => {
-  const id = e.targetGetAttribute()
-  fetch(`/api/joke/${id}`,{
+const getJokes = () => {
+  return $.ajax({
+    url: "/api/jokes",
     method: "GET",
-  }).then(() => {
-      
   });
-});
+};
 
-addButton.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const newJoke = {};
-
-  fetch("/api/joke", {
+const saveJoke = (joke) => {
+  return $.ajax({
+    url: "/api/jokes",
+    data: joke,
     method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newJoke),
-  }).then(() => {
-    document.getElementById("").value = "";
-    console.log("Created new joke!");
-    location.reload();
   });
-});
+};
 
-authorCheck.addEventListener("click", () => {});
-
-saveButton.addEventListener("click", () => {
-  var 
-
-
-});
-
-deleteButton.addEventListener("click", (e) => {
-  const id = e.targetGetAttribute();
-
-  fetch(`/api/jokes/${id}`, {
+const deleteJoke = () => {
+  return $.ajax({
+    url: "api/jokes/" + id,
     method: "DELETE",
-  }).then((res) => {
-    console.log(res);
-    console.log(`Deleted Joke: ${id}`);
   });
-  location.reload();
-});
+};
 
+const renderActiveJoke = () => {
+  $saveJokeBtn.hide();
 
+  if (activeJoke.id) {
+    $jokeTitle.attr("readonly", true);
+    $jokeText.attr("readonly", true);
+    $jokeTitle.val(activeJoke.title);
+    $jokeText.val(activeJoke.text);
+  } else {
+    $jokeTitle.attr("readonly", false);
+    $jokeText.attr("readonly", false);
+    $jokeTitle.val("");
+    $jokeText.val("");
+  }
+};
 
+const handleJokeSave = () => {
+  const newJoke = {
+    title: $jokeTitle.val(),
+    text: $jokeText.val(),
+  };
 
+  saveJoke(newJoke).then(() => {
+    getAndRenderJokes();
+    renderActiveJoke();
+  });
+};
+
+const handleJokeDelete = (event) => {
+  event.stopPropagation();
+
+  const joke = $(this).parent("").data();
+  if (activeJoke === joke.id) {
+    activeJoke = {};
+  }
+
+  deleteJoke(joke.id).then(() => {
+    renderActiveJoke();
+  });
+};
+
+const handleJokeView = () => {
+  activeJoke = $(this).data();
+  renderActiveJoke();
+};
+
+const handleNewJokeView = () => {
+  activeJoke = {};
+  renderActiveJoke();
+};
+
+const renderJokeList = (jokes) => {
+  $jokeList.empty();
+
+  const jokeListItems = [];
+
+  const create$li = (text, withDeleteButton = true) => {
+    const $li = $("<li class='list-group-item>");
+    const $span = $("<span>").text(text);
+    $li.append($span);
+
+    if (withDeleteButton) {
+      const $delBtn = $(
+        "<i class='fas fa-trash-alt float-right text-danger delete-note'>"
+      );
+      $li.append($delBtn);
+    }
+    return $li;
+  };
+
+  if (jokes.length === 0) {
+    jokeListItems.push(create$li("No saved jokes", false));
+  }
+
+  jokes.forEach((joke) => {
+    const $li = create$li(joke.title).data(joke);
+    jokeListItems.push($li);
+  });
+
+  $jokeList.append(jokeListItems);
+};
+
+const getAndRenderJokes = () => {
+  return getJokes().then(renderJokeList);
+};
+
+$saveJokeBtn.on("click", handleJokeSave);
+$jokeList.on("click", ".list-group-item", handleJokeView);
+$newJokeBtn.on("click", handleNewJokeView);
+$jokeList.on("click", ".delete-note", handleJokeDelete);
+$jokeTitle.on("keyup", handleRenderSaveBtn);
+$jokeText.on("keyup", handleRenderSaveBtn);
+
+getAndRenderJokes();
