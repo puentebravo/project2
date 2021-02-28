@@ -1,4 +1,4 @@
-const $jokeTitle = $(".joke-title")
+const $jokeTitle = $(".joke-title");
 const $jokeText = $(".joke-textarea");
 const $saveJokeBtn = $(".save-joke");
 const $newJokeBtn = $(".new-joke");
@@ -59,12 +59,13 @@ const handleJokeSave = () => {
 const handleJokeDelete = (event) => {
   event.stopPropagation();
 
-  const joke = $(this).parent("").data();
+  const joke = $(this).parent(".list-group-item").data();
   if (activeJoke === joke.id) {
     activeJoke = {};
   }
 
   deleteJoke(joke.id).then(() => {
+    getAndRenderJokes();
     renderActiveJoke();
   });
 };
