@@ -13,6 +13,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    isSaved: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   });
   return Joke;
 };
