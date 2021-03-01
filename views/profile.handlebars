@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Your gifts to the world:</h5>
                     <ul>
-                        {{#each jokes}}
+                        {{#each Joke}}
                         {{#if (authoredby value1)}}
                         {{> authoredList}}
                         {{/if}}
@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Chosen Laughs:</h5>
                     <ul>
-                        {{#each jokes}}
+                        {{#each Joke}}
                         {{#if isSaved}}
                         {{> punlistblock}}
                         {{/if}}
