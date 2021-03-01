@@ -6,8 +6,6 @@ const passport = require("../config/passport");
 module.exports = (app) => {
   app.get("/", (req, res) => {
     db.Joke.findOne({ order: db.sequelize.random() }).then((data) => {
-      console.log(data);
-      console.log(data.quote);
       const groaner = {
         quote: data.quote,
         author: data.author,
