@@ -1,6 +1,7 @@
 // const { QueryTypes } = require("sequelize");
 const db = require("../models");
 const passport = require("../config/passport");
+const { data } = require("jquery");
 // Routes
 
 module.exports = (app) => {
@@ -17,12 +18,9 @@ module.exports = (app) => {
   });
 
   app.get("/repunsatory", (req, res) => {
-    db.Joke.findAll({}).then((dbJoke) => {
+    db.Joke.findAll({ raw: true }).then((data) => {
       const groanList = {
-        quote: dbJoke.quote,
-        author: dbJoke.author,
-        origin: dbJoke.origin,
-        isSaved: dbJoke.isSaved,
+        Joke: data,
         style: "repunsatory.css",
       };
       res.render("repunsatory", groanList);
@@ -30,12 +28,9 @@ module.exports = (app) => {
   });
 
   app.get("/profile", (req, res) => {
-    db.Joke.findAll({}).then((dbJoke) => {
+    db.Joke.findAll({ raw: true }).then((data) => {
       const userLists = {
-        quote: dbJoke.quote,
-        author: dbJoke.author,
-        origin: dbJoke.origin,
-        isSaved: dbJoke.isSaved,
+        Joke: data,
         style: "profile.css",
       };
       res.render("profile", userLists);
