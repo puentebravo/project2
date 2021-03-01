@@ -16,22 +16,29 @@ module.exports = (app) => {
     });
   });
 
-  app.get("/api/jokes", (req, res) => {
+  app.get("/repunsatory", (req, res) => {
     db.Joke.findAll({}).then((dbJoke) => {
-      res.json(dbJoke);
-      res.render("repunsatory", {
-        title: "repunsatory",
+      const groanList = {
+        quote: dbJoke.quote,
+        author: dbJoke.author,
+        origin: dbJoke.origin,
+        isSaved: dbJoke.isSaved,
         style: "repunsatory.css",
-      });
+      };
+      res.render("repunsatory", groanList);
     });
   });
 
   app.get("/profile", (req, res) => {
-    db.all((data) => {
-      res.render("profile", {
-        title: "Profile",
+    db.Joke.findAll({}).then((dbJoke) => {
+      const userLists = {
+        quote: dbJoke.quote,
+        author: dbJoke.author,
+        origin: dbJoke.origin,
+        isSaved: dbJoke.isSaved,
         style: "profile.css",
-      });
+      };
+      res.render("profile", userLists);
     });
   });
 
