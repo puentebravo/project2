@@ -16,6 +16,10 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
+  User.associate = (models) => {
+    Author.hasMany(models.joke);
+  };
+
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };

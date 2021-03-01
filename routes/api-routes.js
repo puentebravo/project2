@@ -1,7 +1,5 @@
-// const { QueryTypes } = require("sequelize");
 const db = require("../models");
 const passport = require("../config/passport");
-const { data } = require("jquery");
 // Routes
 
 module.exports = (app) => {
@@ -56,9 +54,7 @@ module.exports = (app) => {
   app.put("/api/jokes", (req, res) => {
     db.Joke.update(
       {
-        quote: req.body.quote,
-        author: req.body.author,
-        origin: req.body.origin,
+        isSaved: req.body.isSaved,
       },
       {
         where: {

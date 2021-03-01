@@ -18,5 +18,9 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: false,
     },
   });
+
+  Joke.associate = (models) => {
+    Joke.belongsTo(models.user);
+  };
   return Joke;
 };
