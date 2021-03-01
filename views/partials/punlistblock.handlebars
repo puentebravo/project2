@@ -1,6 +1,6 @@
 <li>
     <h5 class="card-title punTitle"> "{{quote}}" </h5>
     <p class="card-subtitle text-muted punSource">- {{author}}, {{origin}}</p>
-    <button type="button" class="btn btn-primary btn-sm save-joke" data-id="{{id}}" data-saved="{{saved}}"
-        data-bs-toggle="button" autocomplete="off">{{#if saved}}Unsave{{else}}Save{{/if}}</button>
+    <button type="button" class="btn btn-primary btn-sm save-joke" data-id="{{id}}" data-saved="{{isSaved}}"
+        data-bs-toggle="button" autocomplete="off">{{#if isSaved}}Unsave{{else}}Save{{/if}}</button>
 </li>
