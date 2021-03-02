@@ -29,13 +29,18 @@ $(document).ready(() => {
       .catch(handleLoginErr);
   }
 
-  $("#password, #confirm_password").on("keyup", () => {
-    if ($("#password").val() == $("#confirm_password").val()) {
-      $("#message").html("Matching").css("color", "green");
+  const check = function () {
+    if (
+      document.getElementById("passCreate").value ==
+      document.getElementById("passVerify").value
+    ) {
+      document.getElementById("message").style.color = "green";
+      document.getElementById("message").innerHTML = "matching";
     } else {
-      $("#message").html("Not Matching").css("color", "red");
+      document.getElementById("message").style.color = "red";
+      document.getElementById("message").innerHTML = "not matching";
     }
-  });
+  };
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
