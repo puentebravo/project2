@@ -52,14 +52,15 @@
                             </div>
                             <div class="mb-3">
                                 <label for="passInput" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="passCreate">
+                                <input type="password" class="form-control" id="passCreate" onkeyup="check();">
                                 <div id="passwordHelpBlock" class="form-text">
                                     Please create a password that is 6-10 characters long, contains upper and lowercase
                                     letters, at least one number, and no special characters.
                                 </div>
                             <div class="mb-3">
                                 <label for="passInput" class="form-label">Verify password</label>
-                                <input type="password" class="form-control" id="passVerify">
+                                <input type="password" class="form-control" id="passVerify" onkeyup="check();">
+                                <span class="text-muted" id="message"></span>
                             </div>        
                             </div>
                             <button type="submit" class="btn btn-success">Submit</button>
