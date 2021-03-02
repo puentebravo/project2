@@ -3,6 +3,7 @@ const $jokeText = $(".joke-textarea");
 const $saveJokeBtn = $(".save-joke");
 const $newJokeBtn = $(".new-joke");
 const $jokeList = $(".list-container .list-group");
+const $deleteBtn = $(".delete-joke");
 
 let activeJoke = {};
 
@@ -123,3 +124,15 @@ $jokeTitle.on("keyup", handleRenderSaveBtn);
 $jokeText.on("keyup", handleRenderSaveBtn);
 
 getAndRenderJokes();
+
+$deleteBtn.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    const id = e.target.getAttribute("data-id");
+
+    fetch(`/api/jokes/${id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      location.reload();
+    });
+  });
+});
