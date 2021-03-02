@@ -35,6 +35,18 @@ module.exports = (app) => {
     });
   });
 
+  app.get("/signup", (req, res) => {
+    db.Joke.findOne({ order: db.sequelize.random() }).then((data) => {
+      const signupGroaner = {
+        quote: data.quote,
+        author: data.author,
+        origin: data.origin,
+        style: "index.css",
+      };
+      res.render("signup", signupGroaner);
+    });
+  });
+
   app.post("/api/jokes", (req, res) => {
     db.Joke.create({
       quote: req.body.quote,
