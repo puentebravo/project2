@@ -27,13 +27,13 @@ module.exports = (app) => {
   });
 
   app.get("/profile", (req, res) => {
-    db.Joke.findAll({ raw: true }).then((data) => {
-      const userLists = {
+    db.Joke.findAll({ raw: true, where: { UserId: req.user } }).then((data) => {
+      const userList = {
         Joke: data,
         style: "profile.css",
-        logic: "script.js",
+        logic: "profile.js",
       };
-      res.render("profile", userLists);
+      res.render("profile", userList);
     });
   });
 
@@ -53,8 +53,9 @@ module.exports = (app) => {
   app.post("/api/jokes", (req, res) => {
     db.Joke.create({
       quote: req.body.quote,
-      author: req.user,
+      author: req.body.author,
       origin: req.body.origin,
+      UserId: req.user,
     }).then((dbJoke) => res.json(dbJoke));
   });
 
