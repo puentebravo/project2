@@ -8,9 +8,6 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">Home</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/repunsatory">Repunsatory</a>
                 </li>
                 <li class="nav-item">
@@ -28,7 +25,7 @@
                 <div class="card-header">Authored Entries</div>
                 <div class="card-body">
                     <h5 class="card-title">Your gifts to the world:</h5>
-                    <ul>
+                    <ul class="list-group">
                         {{#if Joke}}
                         {{#each Joke}}
                         {{> authoredList}}
@@ -78,17 +75,17 @@
     </div>
     <div class="row">
         <div class="col-lg-3">
-            <div class="card" style="background-color: black; border-width:5px; height:300px; width:300px; margin-left:0px; margin-top:300px">
-              <img class="card-img" src="../public/images/jokeImg7.png" alt="Card image">
+            <div class="container">
+                <img class="img-thumbnail" src="../public/images/jokeImg7.png" alt="Image Thumbnail" width="304" height="236">
             </div>
         </div>
 
         <div class="col-lg-6"></div>
 
         <div class="col-lg-3">
-            <div class="card" style="background-color:black; border-width:5px; height:300px; width:300px; margin-right:0px; margin-top:300px">
-                <img class="card-img" src="../public/images/jokeImg6.png" alt="Card image">
-            </div>
+            <div class="container">
+                <img class="img-thumbnail" src="../public/images/jokeImg6.png" alt="Image Thumbnail" width="304" height="236">
+            </div>  
         </div>
       </div>
 </div>

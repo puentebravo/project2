@@ -9,16 +9,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">Repunsatory</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/repunsatory">Home</a>
+                        <a class="nav-link active" href="/repunsatory">Repunsatory</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">Profile</a>
                     </li>
                 </ul>
-                {{!-- <button class="btn btn-outline-success" type="click">Login</button> --}}
             </div>
         </div>
     </nav>
@@ -35,14 +31,6 @@
                 <input type="text" class="form-control" id="jokeSearch" placeholder="Looking for something?"
                     aria-label="Your dream burger" aria-describedby="Submit Button">
                 <button class="btn btn-outline-success" type="button" id="burgerBtn">Search</button>
-                {{!-- <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Author</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Origin</label>
-                </div> --}}
             </div>
         </div>
         <div class="col lg-3"></div>
@@ -53,7 +41,7 @@
                 <div class="card-body" style="background-color: darkgoldenrod; font-family: 'Donegal One', serif; font-size:20px;">
                     <h5 class="card-title text-center">The Dadabase</h5>
                     <br>
-                    <ul>
+                    <ul class="list-group">
                         {{#each Joke}}
                         {{> punlistblock }}
                         {{/each}}

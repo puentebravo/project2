@@ -1,37 +1,37 @@
-$(document).ready(() => {
-  const signUpForm = $("form.signup");
-  const emailInput = $("input#email-input");
-  const passwordInput = $("input#password-input");
+document.addEventListener("DOMContentLoaded", (event) => {
+  if (event) {
+    console.log("DOM is loaded");
+  }
+  const signUpForm = document.getElementById("signBtn");
+  const emailInput = document.getElementById("usernameInput");
+  const passwordInput = document.getElementById("passVerify");
 
-  signUpForm.on("submit", (event) => {
+  signUpForm.addEventListener("click", (event) => {
     event.preventDefault();
     const userData = {
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim(),
+      email: emailInput.value.trim(),
+      password: passwordInput.value.trim(),
     };
 
     if (!userData.email || !userData.password) {
       return;
     }
-    signUpUser(userData.email, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
+
+    fetch("/api/signup", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    }).then(() => {
+      window.location.replace("/");
+    });
   });
 
-  function signUpUser(email, password) {
-    $.post("/api/signup", {
-      email: email,
-      password: password,
-    })
-      .then((data) => {
-        window.location.replace("/members");
-      })
-      .catch(handleLoginErr);
-  }
-
-  const check = function () {
+  function check() {
     if (
-      document.getElementById("passCreate").value ==
+      document.getElementById("passCreate").value ===
       document.getElementById("passVerify").value
     ) {
       document.getElementById("message").style.color = "green";
@@ -40,10 +40,5 @@ $(document).ready(() => {
       document.getElementById("message").style.color = "red";
       document.getElementById("message").innerHTML = "not matching";
     }
-  };
-
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
   }
 });

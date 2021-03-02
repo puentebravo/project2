@@ -60,3 +60,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 });
+jokeButton.addEventListener("click", () => {
+    fetch("https://dad-jokes.p.rapidapi.com/random/joke", {
+      method: "GET",
+      headers: {
+        "x-rapidapid-key": "7ff492a3a5msh5f48e3b32ea7c17p1dcc86jsn96453095ee3b",
+        "x-rapidapi-host": "dad-jokes.p.rapidapi.com",
+        useQueryString: true,
+      },
+    }).then((response) => {
+      setupEl.value = response.setup;
+      punchEl.value = response.punchline;
+    });
+
