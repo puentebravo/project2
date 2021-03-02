@@ -42,6 +42,7 @@ module.exports = (app) => {
         author: data.author,
         origin: data.origin,
         style: "index.css",
+        logic: "signup.js",
       };
       res.render("signup", signupGroaner);
     });

@@ -29,6 +29,19 @@ $(document).ready(() => {
       .catch(handleLoginErr);
   }
 
+  const check = function () {
+    if (
+      document.getElementById("passCreate").value ==
+      document.getElementById("passVerify").value
+    ) {
+      document.getElementById("message").style.color = "green";
+      document.getElementById("message").innerHTML = "matching";
+    } else {
+      document.getElementById("message").style.color = "red";
+      document.getElementById("message").innerHTML = "not matching";
+    }
+  };
+
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
