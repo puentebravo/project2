@@ -1,32 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/repunsatory">Repunsatory</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/profile">Profile</a>
-                    </li>
-                </ul>
-                {{!-- <button class="btn btn-outline-success" type="click">Login</button> --}}
-            </div>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/repunsatory">Repunsatory</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/profile">Profile</a>
+                </li>
+            </ul>
+            {{!-- <button class="btn btn-outline-success" type="click">Login</button> --}}
         </div>
-    </nav>
+    </div>
+</nav>
 <div class="container">
     <div class="row">
-        <div class="col lg-1"></div>
-        <div class="col lg-4">
-            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="col lg-5">
+            <div class="card mb-3">
                 <div class="card-header">Authored Entries</div>
                 <div class="card-body">
                     <h5 class="card-title">Your gifts to the world:</h5>
@@ -38,22 +36,22 @@
                 </div>
             </div>
         </div>
-        <div class="col lg-2"></div>
-        <div class="col lg-4">
-            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header">Saved Entries</div>
+        <div class="col lg-5">
+            <div class="card mb-3">
+                <div class="card-header">Gift a laugh!</div>
                 <div class="card-body">
-                    <h5 class="card-title">Chosen Laughs:</h5>
-                    <ul>
-                        {{#each Joke}}
-                        {{#if isSaved}}
-                        {{> punlistblock}}
-                        {{/if}}
-                        {{/each}}
-                    </ul>
+                    <h5 class="card-title">Submit a joke below:</h5>
+                    <div class="mb-3">
+                        <label for="jokeSource" class="form-label">Origin</label>
+                        <input type="text" class="form-control" id="jokeSource"
+                            placeholder="Where did this spark of brilliance come from?">
+                    </div>
+                    <div class="mb-3">
+                        <label for="jokeQuote" class="form-label">The Joke</label>
+                        <textarea class="form-control" id="jokeQuote" rows="5"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col lg-1"></div>
     </div>
 </div>
