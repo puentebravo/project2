@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", (event) => {
+  const passport = require("passport");
   if (event) {
     console.info("DOM loaded");
   }
+  console.log(passport.id);
 
   const createJokeBtn = document.getElementById("create-form");
 
@@ -10,8 +12,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
       e.preventDefault();
 
       const newJoke = {
-        name: document.getElementById("ca").value.trim(),
-        sleepy: document.getElementById("sleepy").checked,
+        quote: document.getElementById("jokeQuote").value.trim(),
+        author: passport.id,
+        origin: document.getElementById("jokeSource").value.trim(),
       };
 
       fetch("/api/jokes", {
@@ -23,7 +26,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         body: JSON.stringify(newJoke),
       }).then(() => {
-        document.getElementById("ca").value = "";
+        document.getElementById("jokeQuote").value = "";
         console.log("Created a new joke!");
         location.reload();
       });
