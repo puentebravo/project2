@@ -10,6 +10,7 @@ module.exports = (app) => {
         author: data.author,
         origin: data.origin,
         style: "index.css",
+        logic: "login.js",
       };
       res.render("index", groaner);
     });
