@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Joke.associate = (models) => {
-    Joke.belongsTo(models.user);
+    Joke.belongsTo(models.User);
   };
   return Joke;
 };

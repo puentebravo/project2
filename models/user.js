@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   User.associate = (models) => {
-    Author.hasMany(models.joke);
+    User.hasMany(models.Joke);
   };
 
   User.prototype.validPassword = function (password) {
