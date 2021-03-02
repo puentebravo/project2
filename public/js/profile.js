@@ -5,8 +5,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   const createJokeBtn = document.getElementById("jokeSubmit");
 
-  createJokeBtn.addEventListener("submit", (e) => {
+  createJokeBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    console.log("clicked.");
 
     const newJoke = {
       quote: document.getElementById("jokeQuote").value.trim(),
