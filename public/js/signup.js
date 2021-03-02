@@ -29,16 +29,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
-  function check() {
-    if (
-      document.getElementById("passCreate").value ===
-      document.getElementById("passVerify").value
-    ) {
-      document.getElementById("message").style.color = "green";
-      document.getElementById("message").innerHTML = "matching";
-    } else {
-      document.getElementById("message").style.color = "red";
-      document.getElementById("message").innerHTML = "not matching";
-    }
-  }
+  // function check() {
+  //   if (
+  //     document.getElementById("passCreate").value ===
+  //     document.getElementById("passVerify").value
+  //   ) {
+  //     document.getElementById("message").style.color = "green";
+  //     document.getElementById("message").innerHTML = "matching";
+  //   } else {
+  //     document.getElementById("message").style.color = "red";
+  //     document.getElementById("message").innerHTML = "not matching";
+  //   }
+  // }
 });
