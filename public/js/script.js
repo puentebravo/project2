@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       const newJoke = {
         quote: document.getElementById("jokeQuote").value.trim(),
-        author: passport.id,
         origin: document.getElementById("jokeSource").value.trim(),
       };
 
