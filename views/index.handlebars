@@ -1,42 +1,34 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/repunsatory">Repunsatory</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/profile">Profile</a>
-                    </li>
-                </ul>
-                {{!-- <button class="btn btn-outline-success" type="click">Login</button> --}}
-            </div>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/repunsatory">Repunsatory</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
+                </li>
+            </ul>
+            {{!-- <button class="btn btn-outline-success" type="click">Login</button> --}}
         </div>
-    </nav>
+    </div>
+</nav>
 <div class="body">
     <div class="container-md">
         <div class="row align-items-center">
             <div class="col lg-3"></div>
             <div class="col lg-6">
-                <h6>Welcome to the Dadabase! Please log in below.</h6>
-            </div>
-            <div class="col lg-3"></div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col lg-3"></div>
-            <div class="col lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <p class="lead text-center">Today's Daily Groaner:</p>
+                        <p class="lead text-center">Groaner of the day:</p>
                         {{> jokeoftheday }}
                     </div>
                 </div>
@@ -47,6 +39,9 @@
             <div class="col lg-3"></div>
             <div class="col lg-6">
                 <div class="card">
+                    <div class="card-header">
+                        <h6>Welcome to the Dadabase! Please log in below.</h6>
+                    </div>
                     <div class="card-body">
                         <form>
                             <div class="mb-3">
@@ -61,6 +56,9 @@
                             </div>
                             <button type="submit" class="btn btn-success">Login</button>
                         </form>
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-muted">Don't have an account? <a href="/signup">Sign up here!</a></p>
                     </div>
                 </div>
             </div>
