@@ -30,8 +30,22 @@ module.exports = (app) => {
       const userLists = {
         Joke: data,
         style: "profile.css",
+        logic: "script.js",
       };
       res.render("profile", userLists);
+    });
+  });
+
+  app.get("/signup", (req, res) => {
+    db.Joke.findOne({ order: db.sequelize.random() }).then((data) => {
+      const signupGroaner = {
+        quote: data.quote,
+        author: data.author,
+        origin: data.origin,
+        style: "index.css",
+        logic: "signup.js",
+      };
+      res.render("signup", signupGroaner);
     });
   });
 
