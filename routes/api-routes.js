@@ -52,7 +52,7 @@ module.exports = (app) => {
   app.post("/api/jokes", (req, res) => {
     db.Joke.create({
       quote: req.body.quote,
-      author: req.body.author,
+      author: req.user,
       origin: req.body.origin,
     }).then((dbJoke) => res.json(dbJoke));
   });
@@ -63,19 +63,6 @@ module.exports = (app) => {
         id: req.params.id,
       },
     }).then((dbJoke) => res.json(dbJoke));
-  });
-
-  app.put("/api/jokes", (req, res) => {
-    db.Joke.update(
-      {
-        isSaved: req.body.isSaved,
-      },
-      {
-        where: {
-          id: req.body.id,
-        },
-      }
-    ).then((dbJoke) => res.json(dbJoke));
   });
 
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
