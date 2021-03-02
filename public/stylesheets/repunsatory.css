@@ -1,4 +1,4 @@
-.body {
+body {
   background-image: url("../images/atomicPrint1.png");
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -6,6 +6,6 @@
   -o-background-size: cover;
   background-size: cover;
   overflow: hidden;
-  height:90vh;
+  height:100vh;
 }
 
