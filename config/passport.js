@@ -23,7 +23,6 @@ passport.use(
             message: "Incorrect password.",
           });
         }
-        s;
         return done(null, dbUser);
       });
     }
