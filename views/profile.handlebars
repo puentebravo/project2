@@ -17,7 +17,7 @@
                     <a class="nav-link active" href="/profile">Profile</a>
                 </li>
             </ul>
-            {{!-- <button class="btn btn-outline-success" type="click">Login</button> --}}
+            <button class="btn btn-outline-success" type="click" id="logoutBtn">Logout</button>
         </div>
     </div>
 </nav>
@@ -29,9 +29,13 @@
                 <div class="card-body">
                     <h5 class="card-title">Your gifts to the world:</h5>
                     <ul>
+                        {{#if Joke}}
                         {{#each Joke}}
                         {{> authoredList}}
                         {{/each}}
+                        {{else}}
+                        <p class="text-muted">You don't seem to have any jokes. Why not add one?</p>
+                        {{/if}}
                     </ul>
                 </div>
             </div>
@@ -47,9 +51,14 @@
                             placeholder="Where did this spark of brilliance come from?">
                     </div>
                     <div class="mb-3">
+                        <label for="jokeAuthor" class="form-label">Author</label>
+                        <input type="text" class="form-control" id="jokeAuthor" placeholder="Who said or wrote it?">
+                    </div>
+                    <div class="mb-3">
                         <label for="jokeQuote" class="form-label">The Joke</label>
                         <textarea class="form-control" id="jokeQuote" rows="5"></textarea>
                     </div>
+                    <button type="submit" class="btn btn-success" id="jokeSubmit">Send it!</button>
                 </div>
             </div>
         </div>

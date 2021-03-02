@@ -8,12 +8,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   loginForm.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("clicked!");
     const userData = {
       email: emailInput.value.trim(),
       password: passwordInput.value.trim(),
     };
-    console.log(userData);
     if (!userData.email || !userData.password) {
       return;
     }
