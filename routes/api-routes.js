@@ -30,6 +30,7 @@ module.exports = (app) => {
       const userLists = {
         Joke: data,
         style: "profile.css",
+        logic: "script.js",
       };
       res.render("profile", userLists);
     });
