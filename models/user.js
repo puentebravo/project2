@@ -14,11 +14,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notempty: true,
-        len: [6, 10],
-        isInt: true,
-        isLowercase: true,
-        isUppercase: true,
+        len: [6, 20],
       },
     },
   });
