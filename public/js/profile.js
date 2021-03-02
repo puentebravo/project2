@@ -59,4 +59,29 @@ document.addEventListener("DOMContentLoaded", (event) => {
       window.location.replace("/");
     });
   });
+
+  // const jokeButton = document.getElementById("randButton");
+  // const setupEl = document.getElementById("setupTag");
+  // const punchEl = document.getElementById("punchLineTag");
+
+  // jokeButton.addEventListener("click", () => {
+  //   console.log("Clicked");
+  //   fetch("https://dad-jokes.p.rapidapi.com/random/joke", {
+  //     method: "GET",
+  //     headers: {
+  //       "x-rapidapi-key": "7ff492a3a5msh5f48e3b32ea7c17p1dcc86jsn96453095ee3b",
+  //       "x-rapidapi-host": "dad-jokes.p.rapidapi.com",
+  //     },
+  //   })
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     })
+  //     .then((response) => {
+  //       setupEl.value = response.setup;
+  //       punchEl.value = response.punchline;
+  //     });
+  // });
 });
