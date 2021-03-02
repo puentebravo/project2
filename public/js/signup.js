@@ -29,6 +29,14 @@ $(document).ready(() => {
       .catch(handleLoginErr);
   }
 
+  $("#password, #confirm_password").on("keyup", () => {
+    if ($("#password").val() == $("#confirm_password").val()) {
+      $("#message").html("Matching").css("color", "green");
+    } else {
+      $("#message").html("Not Matching").css("color", "red");
+    }
+  });
+
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
