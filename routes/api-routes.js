@@ -27,14 +27,16 @@ module.exports = (app) => {
   });
 
   app.get("/profile", (req, res) => {
-    db.Joke.findAll({ raw: true, where: { UserId: req.user } }).then((data) => {
-      const userList = {
-        Joke: data,
-        style: "profile.css",
-        logic: "profile.js",
-      };
-      res.render("profile", userList);
-    });
+    db.Joke.findAll({ raw: true, where: { UserId: req.user.id } }).then(
+      (data) => {
+        const userList = {
+          Joke: data,
+          style: "profile.css",
+          logic: "profile.js",
+        };
+        res.render("profile", userList);
+      }
+    );
   });
 
   app.get("/signup", (req, res) => {
@@ -55,7 +57,7 @@ module.exports = (app) => {
       quote: req.body.quote,
       author: req.body.author,
       origin: req.body.origin,
-      UserId: req.user,
+      UserId: req.user.id,
     }).then((dbJoke) => res.json(dbJoke));
   });
 
