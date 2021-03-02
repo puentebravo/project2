@@ -1,36 +1,35 @@
-$(document).ready(function () {
-  var loginForm = $("form.login");
-  var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
-  
-  loginForm.on("submit", function(event) {
+document.addEventListener("DOMContentLoaded", (event) => {
+  if (event) {
+    console.log("DOM loaded");
+  }
+  const loginForm = document.querySelector("#loginButton");
+  const emailInput = document.querySelector("#usernameInput");
+  const passwordInput = document.querySelector("#passInput");
+
+  loginForm.addEventListener("click", (event) => {
     event.preventDefault();
-    var userData = {
-     email: emailInput.val().trim(),
-     password: passwordInput.val().trim()
+    console.log("clicked!");
+    const userData = {
+      email: emailInput.value.trim(),
+      password: passwordInput.value.trim(),
     };
-    
+    console.log(userData);
     if (!userData.email || !userData.password) {
-        return;
+      return;
     }
-  
-
-      loginUser(userData.email, userData.password);
-      emailInput.val("");
-      passwordInput.val("");
-    });
-  
-
-    function loginUser(email, password) {
-      $.post("/api/login", {
-        email: email,
-        password: password
+    fetch("/api/login", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then(() => {
+        window.location.replace("/profile");
       })
-        .then(function() {
-          window.location.replace("/members");
-        })
-        .catch(function(err) {
-          console.log(err);
-        });
-    }
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 });
