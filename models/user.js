@@ -13,6 +13,13 @@ module.exports = function (sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        notempty: true,
+        len: [6, 10],
+        isInt: true,
+        isLowercase: true,
+        isUppercase: true,
+      },
     },
   });
 
