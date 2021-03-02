@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Navbar</a>
+        <a class="navbar-brand" href="/"><h2><i class="far fa-grin-squint-tears"></i></h2>The Dadabase</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,12 +22,19 @@
     </div>
 </nav>
     <div class="container-md">
+        <div class="row text-center" style="color:crimson; font-family: 'Ravi Prakash', cursive; font-size:100px;">
+            
+            <div class="col lg-12">
+                <h3>Welcome to the Dadabase! Please log in below.</h3>
+            </div>
+            
+        </div>
         <div class="row align-items-center">
             <div class="col lg-3"></div>
             <div class="col lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="lead text-center">Groaner of the day:</p>
+                <div class="card" style="background-color: darkcyan;">
+                    <div class="card-body" style="color:black;">
+                        <p class="lead text-center" style="color:crimson; font-family: 'Creepster', cursive; font-size:30px;">Today's Daily Groaner:</p>
                         {{> jokeoftheday }}
                     </div>
                 </div>
@@ -37,10 +44,7 @@
         <div class="row align-items-center">
             <div class="col lg-3"></div>
             <div class="col lg-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h6>Welcome to the Dadabase! Please log in below.</h6>
-                    </div>
+                <div class="card" style="background-color: darkgoldenrod; font-family: 'Donegal One', serif; font-size:20px;">
                     <div class="card-body">
                         <form>
                             <div class="mb-3">
@@ -53,19 +57,17 @@
                                 <label for="passInput" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="passInput">
                             </div>
-                            <button type="submit" class="btn btn-success" id="loginButton">Login</button>
+                            <button type="submit" class="btn btn-success">Login</button>
                         </form>
-                    </div>
-                    <div class="card-footer">
-                        <p class="text-muted">Don't have an account? <a href="/signup">Sign up here!</a></p>
                     </div>
                 </div>
             </div>
             <div class="col lg-3"></div>
         </div>
+      
         <div class="row">
         <div class="col-lg-3">
-            <div class="card" style="max-width: 18rem; background-color: black; border-width:5px; height:300px; width:300px; margin-left:0px; margin-top:300px">
+            <div class="card" style="background-color: black; border-width:5px; height:300px; width:300px; margin-left:0px; margin-top:300px">
               <img class="card-img" src="../public/images/jokeImg3.png" alt="Card image">
             </div>
         </div>
