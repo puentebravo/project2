@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const signUpForm = document.getElementById("signBtn");
   const emailInput = document.getElementById("usernameInput");
   const passwordInput = document.getElementById("passVerify");
+  const firstPass = document.getElementById("passCreate");
+  const matchMessage = document.getElementById("message");
 
   signUpForm.addEventListener("click", (event) => {
     event.preventDefault();
@@ -29,16 +31,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
-  // function check() {
-  //   if (
-  //     document.getElementById("passCreate").value ===
-  //     document.getElementById("passVerify").value
-  //   ) {
-  //     document.getElementById("message").style.color = "green";
-  //     document.getElementById("message").innerHTML = "matching";
-  //   } else {
-  //     document.getElementById("message").style.color = "red";
-  //     document.getElementById("message").innerHTML = "not matching";
-  //   }
-  // }
+  function check() {
+    console.log("hello!");
+    if (firstPass.value === passwordInput.value) {
+      matchMessage.style.color = "green";
+      matchMessage.innerHTML = "Passwords Match";
+    } else {
+      matchMessage.style.color = "red";
+      matchMessage.innerHTML = "Passwords do not match";
+    }
+  }
+
+  firstPass.addEventListener("keyup", check);
+  passwordInput.addEventListener("keyup", check);
 });

@@ -22,7 +22,7 @@ Navigate to our website, set up a profile, and let the laughter begin.
 
 ## Usage
 
-Once you sign up for a profile, you can use your profile page to submit jokes or navigate through your saved ones. To save a joke, navigate to the main jokes page, click the save button, and enjoy it forever.
+Once you sign up for a profile, you can use your profile page to submit jokes or navigate through your library of created lines.
 
 ## Credits
 
@@ -52,9 +52,3 @@ To read the license in its entirety, click here: [MIT](./LICENSE)
 ---
 
 Copyright [2021] [ACDE]
-
-#### COMMIT WITHOUT TRAVIS BUILD
-
-```Bash
-$ git commit -m "[skip travis] Update READMEMES"
-```
