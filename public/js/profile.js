@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     fetch("/api/jokes", {
       method: "POST",
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: "text/html",
+        "Content-Type": "text/html",
       },
 
       body: JSON.stringify(newJoke),
@@ -60,28 +60,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
-  // const jokeButton = document.getElementById("randButton");
-  // const setupEl = document.getElementById("setupTag");
-  // const punchEl = document.getElementById("punchLineTag");
+  const jokeButton = document.getElementById("randButton");
+  const punchEl = document.getElementById("punchLineTag");
 
-  // jokeButton.addEventListener("click", () => {
-  //   console.log("Clicked");
-  //   fetch("https://dad-jokes.p.rapidapi.com/random/joke", {
-  //     method: "GET",
-  //     headers: {
-  //       "x-rapidapi-key": "7ff492a3a5msh5f48e3b32ea7c17p1dcc86jsn96453095ee3b",
-  //       "x-rapidapi-host": "dad-jokes.p.rapidapi.com",
-  //     },
-  //   })
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     })
-  //     .then((response) => {
-  //       setupEl.value = response.setup;
-  //       punchEl.value = response.punchline;
-  //     });
-  // });
+  jokeButton.addEventListener("click", () => {
+    console.log("Clicked");
+    fetch("https://icanhazdadjoke.com/", {
+      method: "GET",
+    })
+      .then((response) => {
+        console.log(response);
+        punchEl.value = response;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
 });
