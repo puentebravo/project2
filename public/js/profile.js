@@ -67,10 +67,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     console.log("Clicked");
     fetch("https://icanhazdadjoke.com/", {
       method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
     })
       .then((response) => {
-        console.log(response);
-        punchEl.value = response;
+        console.log(response.joke);
+        punchEl.innerHTML = response.joke;
       })
       .catch((err) => {
         console.error(err);
